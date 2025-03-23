@@ -1,9 +1,14 @@
+import { Link } from 'react-router-dom';
+
 function Header({ title, slogan }) {
     return (
         <header className="text-center flex flex-col items-center header">
+            <Link to="/">
                 <h2 className="text-white pt-5 pb-2 text-3xl font-bold">
                     {title}
                 </h2>
+            </Link>
+
             <p className="text-gray-400 text-opacity-80 text-base leading-relaxed xl:w-1/2 lg:w-3/4 mx-auto">
                 {slogan}
             </p>

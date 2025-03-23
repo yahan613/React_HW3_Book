@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route, Link } from "react-router";
 import bookItem from "../json/books.json";
 
 export default function Productlist() {
@@ -14,7 +15,7 @@ export default function Productlist() {
             <p className="mt-2">{item.summary.substring(0, 100)}...</p>
             <p className="font-bold mt-2">${item.price}</p>
             <div className="card-actions">
-              <button className="btn btn-primary">Learn More</button>
+              <Link to={`/BookIntroduction/${item.ID}`} className="btn btn-primary">Learn More</Link>
             </div>
           </div>
         </div>
