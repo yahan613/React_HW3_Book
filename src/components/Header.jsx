@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 function Header({ title, slogan }) {
     return (
         <header className="text-center flex flex-col items-center header">
