@@ -11,7 +11,6 @@ export default function BookDetail({ book }) {
 
     const handleBuy = () => {
         setCount(0);  // 按下 "Buy" 按鈕時，將 count 設為 0
-        console.log(`Buying ${item.title} for ${count} times`);
     };
 
     const BuyingWindow = () => {
