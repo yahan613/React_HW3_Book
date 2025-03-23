@@ -13,6 +13,9 @@ export default function Footer() {
                             <a href="#">
                                 <img className="w-8 h-8" src="/image/nn-icon-facebook.svg" alt="facebook" />
                             </a>
+                            <a href="#">
+                                <img className="w-8 h-8" src="/image/nn-icon-instagram.svg" alt="instagram" />
+                            </a>
                         </div>
                     </div>
 
