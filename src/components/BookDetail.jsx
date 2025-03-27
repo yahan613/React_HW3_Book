@@ -55,6 +55,30 @@ export default function BookDetail({ book }) {
 
                 </div>
             </div>
+            <ul className="list bg-base-100 rounded-box shadow-md mt-10">
+
+                <ul>
+                    <li className="p-4 pb-2 text-L text-gray-800 font-semibold tracking-wide">Reviews</li>
+                    {item.reviews.map((review, index) => (
+                        <li key={index} className="list-row">
+                            <div>
+                                <img className="size-10 rounded-box" src="https://img.daisyui.com/images/profile/demo/1@94.webp" alt="Profile" />
+                            </div>
+
+                            <div className="flex items-center space-x-4 justify-between">
+                                <div className="font-semibold ">{review.reviewer}</div>
+                                <div className="text-xs opacity-80 w-100 text-left">{review.comment}</div>
+                                <div className="text-sm text-yellow-500 w-40">
+                                    {Array.from({ length: review.rating }).map((_, i) => (
+                                        <span key={i}>⭐</span>
+                                    ))}
+                                </div>
+                            </div>
+
+                        </li>
+                    ))}
+                </ul>
+            </ul>
         </div>
     )
 }
