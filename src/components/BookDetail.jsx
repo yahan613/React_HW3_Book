@@ -1,16 +1,20 @@
+import { useDispatch } from 'react-redux';
+import { increment } from './redux/cartSlice';
 import books_reviews from '../json/books_reviews.json';
 import { useState } from "react";
 
 export default function BookDetail({ book }) {
     const item = books_reviews.find((item) => item.ID === book.ID);
-
+    const dispatch = useDispatch(); 
 
     const [count, setCount] = useState(0);
-    const increment = () => setCount(count + 1);
-    const decrement = () => setCount(count > 1 ? count - 1 : 1); // 最小值為 1
-
-    const handleBuy = () => {
-        setCount(0);  // 按下 "Buy" 按鈕時，將 count 設為 0
+    const tempincrement = () => setCount(count + 1);
+    const tempdecrement = () => setCount(count > 1 ? count - 1 : 1); // 最小值為 1
+    const clearBuyingCount = () => {
+        console.log("進入");  
+        console.log("購物車新增數量：", count);
+        dispatch(increment(count));
+        setCount(0);
     };
 
     const BuyingWindow = () => {
@@ -36,11 +40,11 @@ export default function BookDetail({ book }) {
                         <div className="modal-box h-80 flex flex-col justify-evenly">
                             <h1 className="font-bold text-lg">I want to buy：{item.title}</h1>
                             <div className="card-actions w-full flex justify-center pt-15">
-                                <button className="btn btn-primary" onClick={decrement}>
+                                <button className="btn btn-primary" onClick={tempdecrement}>
                                     -
                                 </button>
                                 <span className="text-lg font-bold bg-gray-200 px-2 py-1 rounded w-22">{count}</span>
-                                <button className="btn btn-primary" onClick={increment}>
+                                <button className="btn btn-primary" onClick={tempincrement}>
                                     +
                                 </button>
                             </div>
@@ -48,8 +52,7 @@ export default function BookDetail({ book }) {
                             <div className="modal-action flex justify-center">
                                 <form method="dialog">
                                     {/* if there is a button in form, it will close the modal */}
-                                    <button className="btn center" onclick={handleBuy}>Buy</button>
-
+                                    <button className="btn center" onClick={clearBuyingCount}>Buy</button>
                                 </form>
                             </div>
                         </div>

@@ -1,6 +1,9 @@
-@import "tailwindcss";
-
-body {
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  width: 100%; /* 避免使用 100vw */
   background-color: #111828;
 }
 
@@ -10,9 +13,8 @@ body {
   grid-template-areas: 
     'header'
     'content'
-    'footer'
-  ;
-  grid-template-rows: auto 1fr auto;
+    'footer';
+  grid-template-rows: auto;
   gap: 1rem;
 }
 
