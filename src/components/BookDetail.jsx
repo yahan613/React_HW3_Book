@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function BookDetail({ book }) {
     const item = books_reviews.find((item) => item.ID === book.ID);
-  
+
 
     const [count, setCount] = useState(0);
     const increment = () => setCount(count + 1);
@@ -17,9 +17,12 @@ export default function BookDetail({ book }) {
         document.getElementById('my_modal_1').showModal();
         setCount(0);
     }
+
+    
+
     return (
         <div className="book-detail">
-            <div className="card bg-[#DCDDDF] lg:card-side shadow-sm flex justify-evenly">
+            <div className="card bg-[#DCDDDF] lg:card-side shadow-sm flex justify-evenly pb-40">
                 <figure>
                     <img src={item.cover} alt={item.title} className="rounded-xl w-full h-98 object-cover" />
                 </figure>
@@ -46,15 +49,38 @@ export default function BookDetail({ book }) {
                                 <form method="dialog">
                                     {/* if there is a button in form, it will close the modal */}
                                     <button className="btn center" onclick={handleBuy}>Buy</button>
-                                   
+
                                 </form>
                             </div>
                         </div>
                     </dialog>
-
-
                 </div>
             </div>
+            <ul className="list bg-base-100 rounded-box shadow-md mt-10">
+
+                <ul>
+                    <li className="p-4 pb-2 text-L text-gray-800 font-semibold tracking-wide">Reviews</li>
+                    {item.reviews.map((review, index) => (
+                        <li key={index} className="list-row">
+                            <div>
+                                <img className="size-10 rounded-box" src="https://img.daisyui.com/images/profile/demo/1@94.webp" alt="Profile" />
+                            </div>
+
+                            <div className="flex items-center space-x-4 justify-between">
+                                <div className="font-semibold ">{review.reviewer}</div>
+                                <div className="text-xs opacity-80 w-100 text-left">{review.comment}</div>
+                                <div className="text-sm text-yellow-500 w-40">
+                                    {Array.from({ length: review.rating }).map((_, i) => (
+                                        <span key={i}>⭐</span>
+                                    ))}
+                                </div>
+                            </div>
+
+                        </li>
+                    ))}
+                </ul>
+
+            </ul>
         </div>
     )
 }
