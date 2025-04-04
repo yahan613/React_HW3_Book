@@ -11,10 +11,10 @@ export default function Footer() {
                         <p className="font-extrabold">FOLLOW US</p>
                         <div className="flex items-center space-x-4">
                             <a href="#">
-                                <img className="w-8 h-8" src="../../image/nn-icon-facebook.svg" alt="facebook" />
+                                <img className="w-8 h-8" src="/image/nn-icon-facebook.svg" alt="facebook" />
                             </a>
                             <a href="#">
-                                <img className="w-8 h-8" src="../../public/image/nn-icon-instagram.svg" alt="instagram" />
+                                <img className="w-8 h-8" src="/image/nn-icon-instagram.svg" alt="instagram" />
                             </a>
                         </div>
                     </div>

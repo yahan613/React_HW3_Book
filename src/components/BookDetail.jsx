@@ -79,7 +79,6 @@ export default function BookDetail({ book }) {
                         </li>
                     ))}
                 </ul>
-
             </ul>
         </div>
     )
